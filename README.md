@@ -62,7 +62,7 @@ Creates/updates the project’s `mason.yaml` and `mason-lock.json`.
 # In your Flutter/Dart project root:
 mason init
 
-mason add flutter_feature   --git-url https://github.com/<YOUR_GH_USERNAME>/<YOUR_REPO>.git   --git-path bricks/flutter_feature   --git-ref v0.2.0   # tag/branch/commit
+mason add flutter_feature   --git-url https://github.com/MohamedOsama26/mason-bricks.git   --git-path bricks/flutter_feature   --git-ref v0.2.0   # tag/branch/commit
 
 mason get
 ```
