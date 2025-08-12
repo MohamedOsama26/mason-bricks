@@ -1,0 +1,6 @@
+{{#include_remote}}class {{#pascalCase}}{{feature_name}}{{/pascalCase}}RemoteDataSource {
+  Future<Map<String, dynamic>> fetch() async {
+    // TODO implement API call
+    return {};
+  }
+}{{/include_remote}}

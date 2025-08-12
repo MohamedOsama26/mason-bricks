@@ -1,0 +1,6 @@
+{{#include_local}}class {{#pascalCase}}{{feature_name}}{{/pascalCase}}LocalDataSource {
+  Future<Map<String, dynamic>> read() async {
+    // TODO implement local storage read
+    return {};
+  }
+}{{/include_local}}

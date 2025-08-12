@@ -1,0 +1,10 @@
+# Mason / Dart build caches
+.mason/
+.dart_tool/
+build/
+hooks/build/
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

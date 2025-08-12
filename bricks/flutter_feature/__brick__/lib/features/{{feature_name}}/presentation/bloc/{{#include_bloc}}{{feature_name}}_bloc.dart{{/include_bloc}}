@@ -1,0 +1,19 @@
+{{#include_bloc}}import 'package:flutter_bloc/flutter_bloc.dart';
+
+sealed class {{#pascalCase}}{{feature_name}}{{/pascalCase}}Event {}
+class Load{{#pascalCase}}{{feature_name}}{{/pascalCase}} extends {{#pascalCase}}{{feature_name}}{{/pascalCase}}Event {}
+
+sealed class {{#pascalCase}}{{feature_name}}{{/pascalCase}}State {}
+class {{#pascalCase}}{{feature_name}}{{/pascalCase}}Initial extends {{#pascalCase}}{{feature_name}}{{/pascalCase}}State {}
+class {{#pascalCase}}{{feature_name}}{{/pascalCase}}Loading extends {{#pascalCase}}{{feature_name}}{{/pascalCase}}State {}
+class {{#pascalCase}}{{feature_name}}{{/pascalCase}}Loaded extends {{#pascalCase}}{{feature_name}}{{/pascalCase}}State {}
+
+class {{#pascalCase}}{{feature_name}}{{/pascalCase}}Bloc extends Bloc<{{#pascalCase}}{{feature_name}}{{/pascalCase}}Event, {{#pascalCase}}{{feature_name}}{{/pascalCase}}State> {
+  {{#pascalCase}}{{feature_name}}{{/pascalCase}}Bloc() : super({{#pascalCase}}{{feature_name}}{{/pascalCase}}Initial()) {
+    on<Load{{#pascalCase}}{{feature_name}}{{/pascalCase}}>((event, emit) async {
+      emit({{#pascalCase}}{{feature_name}}{{/pascalCase}}Loading());
+      await Future<void>.delayed(const Duration(milliseconds: 300));
+      emit({{#pascalCase}}{{feature_name}}{{/pascalCase}}Loaded());
+    });
+  }
+}{{/include_bloc}}
