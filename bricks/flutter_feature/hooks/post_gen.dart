@@ -1,7 +1,7 @@
 ﻿import 'dart:io';
 import 'package:mason/mason.dart';
 
-void main(HookContext context) async {
+void run(HookContext context) async {
   final log = context.logger;
   final feature = (context.vars['feature_name'] as String).trim();
   final includeLocal = (context.vars['include_local'] as bool?) ?? true;
