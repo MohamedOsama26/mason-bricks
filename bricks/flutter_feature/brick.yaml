@@ -1,39 +1,26 @@
 name: flutter_feature
-description: Generate a Flutter feature (data/domain/presentation) with multi-model DTO/Entity + mappers and optional pagination wrappers.
-version: 0.2.0+1
+description: Generate a Flutter feature (DDD folders + optional local/remote/bloc)
+version: 0.1.1
+environment:
+  mason: ">=0.1.0 <1.0.0"
+
 vars:
   feature_name:
     type: string
-    description: The feature name in snake_case (e.g., booking_details)
-    prompt: Enter the feature name (snake_case)
-    default: sample_feature
-  include_bloc:
-    type: boolean
-    description: Generate BLoC scaffolding?
-    default: true
-  include_dto:
-    type: boolean
-    description: Generate DTOs for models?
-    default: true
-  include_remote:
-    type: boolean
-    description: Include remote data source?
-    default: true
+    description: "Feature name in snake_case (e.g., user_profile)"
+    default: sample
+
   include_local:
     type: boolean
-    description: Include local data source?
-    default: false
-  include_tests:
+    description: "Include local data source"
+    default: true
+
+  include_remote:
     type: boolean
-    description: Generate basic tests?
-    default: false
-  models_csv:
-    type: string
-    description: Comma-separated list of model/entity names in PascalCase (e.g., Booking,BookingDetails,TestItem)
-    prompt: Which models/entities do you want to create? (comma-separated PascalCase)
-    default: Booking
-  pagination_models_csv:
-    type: string
-    description: Optional comma-separated list of models that should also generate pagination wrappers (e.g., Booking,TestItem). Leave empty for none.
-    prompt: Models with pagination wrappers? (comma-separated, optional)
-    default: ""
+    description: "Include remote data source"
+    default: true
+
+  include_bloc:
+    type: boolean
+    description: "Include Bloc file"
+    default: true
