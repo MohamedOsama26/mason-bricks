@@ -1,12 +1,16 @@
-﻿import 'dart:io';
-import 'package:mason/mason.dart';
+﻿// No mason import needed
+import 'dart:io';
 
-void run(HookContext context) async {
-  final log = context.logger;
-  final feature = (context.vars['feature_name'] as String).trim();
-  final includeLocal = (context.vars['include_local'] as bool?) ?? true;
-  final includeRemote = (context.vars['include_remote'] as bool?) ?? true;
-  final includeBloc = (context.vars['include_bloc'] as bool?) ?? true;
+// Accept a dynamic context so we don't depend on package:mason
+void run(dynamic context) async {
+  final log = context.logger; // still available at runtime
+
+  // Read vars safely
+  final vars = Map<String, dynamic>.from(context.vars as Map);
+  final feature = (vars['feature_name'] as String).trim();
+  final includeLocal  = (vars['include_local']  as bool?) ?? true;
+  final includeRemote = (vars['include_remote'] as bool?) ?? true;
+  final includeBloc   = (vars['include_bloc']   as bool?) ?? true;
 
   String p(List<String> parts) => parts.join(Platform.pathSeparator);
 
@@ -16,22 +20,26 @@ void run(HookContext context) async {
   final blocDir  = p(['lib','features',feature,'presentation','bloc']);
 
   void removeIfExists(String path) {
-    final f = File(path);
-    if (f.existsSync()) {
-      f.deleteSync();
-      log.info('Removed $path');
-    }
+    try {
+      final f = File(path);
+      if (f.existsSync()) {
+        f.deleteSync();
+        log.info('Removed $path');
+      }
+    } catch (_) {}
   }
 
   void removeDirIfEmpty(String path) {
-    final d = Directory(path);
-    if (d.existsSync() && d.listSync().isEmpty) {
-      d.deleteSync();
-      log.info('Removed empty dir $path');
-    }
+    try {
+      final d = Directory(path);
+      if (d.existsSync() && d.listSync().isEmpty) {
+        d.deleteSync();
+        log.info('Removed empty dir $path');
+      }
+    } catch (_) {}
   }
 
-  if (!includeLocal) removeIfExists(localDS);
+  if (!includeLocal)  removeIfExists(localDS);
   if (!includeRemote) removeIfExists(remoteDS);
   if (!includeBloc) {
     removeIfExists(blocFile);
