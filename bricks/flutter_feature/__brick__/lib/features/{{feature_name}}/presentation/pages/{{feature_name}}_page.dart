@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import '../widgets/{{feature_name}}_view.dart';
 
 class {{pascalCase feature_name}}Page extends StatelessWidget {

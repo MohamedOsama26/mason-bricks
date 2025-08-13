@@ -1,6 +1,6 @@
-name: flutter_feature
+﻿name: flutter_feature
 description: Generate a Flutter feature (DDD folders + optional local/remote/bloc)
-version: 0.1.1
+version: 0.1.2
 environment:
   mason: ">=0.1.0 <1.0.0"
 

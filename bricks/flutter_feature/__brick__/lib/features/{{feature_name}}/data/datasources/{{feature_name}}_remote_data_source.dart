@@ -1,0 +1,3 @@
+﻿class {{pascalCase feature_name}}RemoteDataSource {
+  // TODO: implement network calls
+}

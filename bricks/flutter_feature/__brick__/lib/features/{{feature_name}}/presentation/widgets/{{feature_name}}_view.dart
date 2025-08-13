@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
 class {{pascalCase feature_name}}View extends StatelessWidget {
   const {{pascalCase feature_name}}View({super.key});

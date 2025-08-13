@@ -1,4 +1,4 @@
-// Optional: only generated when include_bloc=true
+﻿// Generated only if include_bloc=true (deleted by post_gen otherwise)
 sealed class {{pascalCase feature_name}}Event {}
 sealed class {{pascalCase feature_name}}State {}
 

@@ -1,3 +1,3 @@
-abstract class {{pascalCase feature_name}}Repository {
+﻿abstract class {{pascalCase feature_name}}Repository {
   // TODO: define repo contract
 }
